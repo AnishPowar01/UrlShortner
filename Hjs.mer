@@ -1,0 +1,89 @@
+classDiagram
+    class Campaign {
+        +int id
+        +string slug
+        +string status
+        +string title
+        +Slot slot
+        +List~Card~ cards
+    }
+
+    class Card {
+        +Content content
+        +Design design
+        +List~CustomerRule~ customerRules
+        +List~BusinessRule~ businessRules
+        +string preview_html
+    }
+
+    class Content {
+        +int id
+        +string slug
+        +string title
+        +string description
+        +string deal_url
+        +string coupon_code
+        +DateTime start_date
+        +DateTime end_date
+        +List~Media~ images
+        +List~Country~ country
+    }
+
+    class Design {
+        +int id
+        +string background_color
+        +string text_color
+        +Font header_font_size
+        +Font body_font_size
+        +string template_part
+    }
+
+    class Slot {
+        +int id
+        +string slug
+        +string title
+        +List~int~ application
+        +List~int~ platform
+    }
+
+    class Media {
+        +int id
+        +string title
+        +MediaDetails media_details
+    }
+
+    class MediaDetails {
+        +int width
+        +int height
+        +string file_url
+        +int filesize
+    }
+
+    class CustomerRule {
+        +string ruleid
+        +string value_type
+        +string operator_value
+    }
+
+    class BusinessRule {
+        +string rule
+        +string operator
+        +string value
+    }
+
+    class Font {
+        +int id
+        +string name
+    }
+
+    %% Relationships
+    Campaign "1" --> "1" Slot : assigned_to
+    Campaign "1" --> "*" Card : contains
+    Card "1" --> "1" Content : displays
+    Card "1" --> "1" Design : styled_by
+    Card "1" --> "*" CustomerRule : filtered_by
+    Card "1" --> "*" BusinessRule : validated_by
+    Content "1" --> "*" Media : has_assets
+    Design "1" --> "2" Font : typography
+    Media "1" -- "1" MediaDetails : metadata
+    
