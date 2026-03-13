@@ -3,6 +3,8 @@ import glob
 import jmespath
 import snowflake.connector
 
+#https://mermaid.live/edit#pako:eNpVjctugzAQRX_FmlUrQVReBntRqYE2m0jtIqtCFlZwMEqwkTFKU-Dfa4iitrOZxz33zgAHVXKgcDyry0EwbdAuKySy9ZKnQtedaVi3R677PG64QY2S_Dqi9cNGoU6otq1l9Xjj1zOE0mE7YxwZUcvTdJPSxf8u-YiyfMtao9r9X2V3USN6zesPYeP_K0Jz63rLj4wemXtgGqVMLwg4UOm6BGp0zx1ouG7YvMIwqwUYwRteALVjyfSpgEJO1tMy-alUc7dp1VcCbPa5s1vflszwrGaVZr8IlyXXqeqlARotCUAH-ALqk1Xk-x6JgmDumGAHrkA9e8ceTqIkCkgSeDicHPhenj6t4jggmMSYhHGchKE__QCeEHXL
+
 # ─── CONFIG ───────────────────────────────────────────────
 SNOWFLAKE_CONFIG = {
     "user":       "YOUR_USER",
